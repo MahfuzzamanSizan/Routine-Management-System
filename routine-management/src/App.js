@@ -1,29 +1,33 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Admin from "./pages/Admin";
-import Student from "./pages/Student";
-import Login from "./pages/Login";
-import { Toaster } from "react-hot-toast";
+import React, { useContext } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthContext, AuthProvider } from './AuthContext';
+import Admin from './pages/Admin';
+import Student from './pages/Student';
+import Login from './pages/Login';
+import Navbar from './components/Navbar';
 
-const App = () => {
-  const role = localStorage.getItem("role");
+const AppContent = () => {
+  const { role } = useContext(AuthContext);
 
   return (
-    <BrowserRouter>
-      <Toaster />
+    <div>
+      <Navbar />
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/admin"
-          element={role === "admin" ? <Admin /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/student"
-          element={role === "student" ? <Student /> : <Navigate to="/login" />}
-        />
-        <Route path="*" element={<Navigate to="/login" />} />
+        <Route path="/" element={<Login />} />
+        {role === 'admin' && <Route path="/admin" element={<Admin />} />}
+        {role === 'student' && <Route path="/student" element={<Student />} />}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-    </BrowserRouter>
+    </div>
   );
 };
+
+const App = () => (
+  <AuthProvider>
+    <Router>
+      <AppContent />
+    </Router>
+  </AuthProvider>
+);
 
 export default App;
