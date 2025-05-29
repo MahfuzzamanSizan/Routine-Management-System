@@ -12,15 +12,38 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center p-4 bg-gray-800 text-white">
-      <h1 className="font-bold text-xl">Routine Manager</h1>
-      <div>
+    <nav className="bg-gradient-to-r from-gray-800 to-gray-700 shadow-md px-6 py-4 text-white">
+      <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <div className="flex items-center space-x-3">
+          <img src="/acs.ico" alt="Logo" className="w-10 h-10 rounded-full" />
+          <h1 className="text-2xl font-bold tracking-wide">Routine Manager</h1>
+        </div>
+
         {role && (
-          <>
-            {role === 'admin' && <Link to="/admin" className="mr-4 hover:underline">Admin</Link>}
-            {role === 'student' && <Link to="/student" className="mr-4 hover:underline">Student</Link>}
-            <button onClick={handleLogout} className="bg-red-500 px-2 py-1 rounded">Logout</button>
-          </>
+          <div className="flex items-center space-x-6">
+            {role === 'admin' && (
+              <Link
+                to="/admin"
+                className="hover:text-yellow-400 transition-colors duration-200 text-lg"
+              >
+                Admin
+              </Link>
+            )}
+            {role === 'student' && (
+              <Link
+                to="/student"
+                className="hover:text-yellow-400 transition-colors duration-200 text-lg"
+              >
+                Student
+              </Link>
+            )}
+            <button
+              onClick={handleLogout}
+              className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200"
+            >
+              Logout
+            </button>
+          </div>
         )}
       </div>
     </nav>
