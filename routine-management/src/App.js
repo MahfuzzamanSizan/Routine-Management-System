@@ -5,6 +5,7 @@ import Admin from './pages/Admin';
 import Student from './pages/Student';
 import Login from './pages/Login';
 import Navbar from './components/Navbar';
+import ProtectedRoute from './ProtectedRoute';
 
 const AppContent = () => {
   const { role } = useContext(AuthContext);
@@ -14,8 +15,8 @@ const AppContent = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Login />} />
-        {role === 'admin' && <Route path="/admin" element={<Admin />} />}
-        {role === 'student' && <Route path="/student" element={<Student />} />}
+        <Route path="/admin" element={<ProtectedRoute element={Admin} allowedRole="admin" />} />
+        <Route path="/student" element={<ProtectedRoute element={Student} allowedRole="student" />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
