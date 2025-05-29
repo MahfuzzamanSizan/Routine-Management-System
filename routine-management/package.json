@@ -44,6 +44,6 @@
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "https://routine-management-system-1.onrender.com"
 }
 
