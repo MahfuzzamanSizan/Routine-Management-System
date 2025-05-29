@@ -12,11 +12,25 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-3xl font-bold mb-4">Select Role to Login</h1>
-      <div className="space-x-4">
-        <button onClick={() => handleLogin('admin')} className="bg-blue-500 text-white px-4 py-2 rounded">Login as Admin</button>
-        <button onClick={() => handleLogin('student')} className="bg-green-500 text-white px-4 py-2 rounded">Login as Student</button>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-green-100 to-blue-200 p-4">
+      <div className="bg-white shadow-2xl rounded-2xl p-10 max-w-md w-full text-center">
+        <h1 className="text-4xl font-extrabold text-gray-800 mb-6">🔐 Login</h1>
+        <p className="text-gray-600 mb-8">Select your role to continue</p>
+
+        <div className="flex flex-col space-y-4">
+          <button
+            onClick={() => handleLogin('admin')}
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition duration-300"
+          >
+            👨‍💼 Login as Admin
+          </button>
+          <button
+            onClick={() => handleLogin('student')}
+            className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition duration-300"
+          >
+            🎓 Login as Student
+          </button>
+        </div>
       </div>
     </div>
   );
