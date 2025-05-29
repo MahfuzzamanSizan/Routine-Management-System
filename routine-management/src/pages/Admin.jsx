@@ -109,8 +109,8 @@ const Admin = () => {
                 <li key={r.id} className="flex justify-between items-start py-4">
                   <div>
                     <p className="text-lg font-bold text-gray-700">{r.subject}</p>
-                    <p className="text-sm text-gray-500">{r.date} | {r.startTime} - {r.endTime}</p>
-                    <p className="text-sm text-gray-400 italic">{r.classType} | {r.examName} | {r.duration} মিনিট</p>
+                    <p className="text-sm text-gray-500">{r.date} | {r.starttime} - {r.endtime}</p>
+                    <p className="text-sm text-gray-400 italic">{r.classtype} | {r.examname} | {r.duration} মিনিট</p>
                   </div>
                   <button
                     onClick={() => handleDelete(r.id)}

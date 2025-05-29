@@ -51,9 +51,9 @@ const Student = () => {
                 <tr key={r.id} className="hover:bg-gray-100">
                   <td className="border p-2">{r.subject}</td>
                   <td className="border p-2">{r.date}</td>
-                  <td className="border p-2">{r.startTime}</td>
-                  <td className="border p-2">{r.endTime}</td>
-                  <td className="border p-2">{r.classType}</td>
+                  <td className="border p-2">{r.starttime}</td>
+                  <td className="border p-2">{r.endtime}</td>
+                  <td className="border p-2">{r.classtype}</td>
                 </tr>
               ))}
             </tbody>

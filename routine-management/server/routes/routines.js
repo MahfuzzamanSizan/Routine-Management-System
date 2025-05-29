@@ -5,7 +5,7 @@ const pool = require('../db');
 // Get all routines
 router.get('/', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM routines ORDER BY date, startTime');
+    const result = await pool.query('SELECT * FROM routines ORDER BY date, starttime');
     res.json(result.rows);
   } catch (err) {
     console.error(err.message);
@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
   const { subject, date, startTime, endTime, classType, examName, duration } = req.body;
   try {
     const result = await pool.query(
-      'INSERT INTO routines (subject, date, startTime, endTime, classType, examName, duration) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+      'INSERT INTO routines (subject, date, starttime, endtime, classtype, examname, duration) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
       [subject, date, startTime, endTime, classType, examName, duration]
     );
     res.status(201).json(result.rows[0]);
@@ -46,7 +46,7 @@ router.put('/:id', async (req, res) => {
   const { subject, date, startTime, endTime, classType, examName, duration } = req.body;
   try {
     const result = await pool.query(
-      'UPDATE routines SET subject=$1, date=$2, startTime=$3, endTime=$4, classType=$5, examName=$6, duration=$7 WHERE id=$8 RETURNING *',
+      'UPDATE routines SET subject=$1, date=$2, starttime=$3, endtime=$4, classtype=$5, examname=$6, duration=$7 WHERE id=$8 RETURNING *',
       [subject, date, startTime, endTime, classType, examName, duration, id]
     );
     res.json(result.rows[0]);
