@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+//import React, { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthContext, AuthProvider } from './AuthContext';
+import { AuthProvider } from './AuthContext';
 import Admin from './pages/Admin';
 import Student from './pages/Student';
 import Login from './pages/Login';
@@ -8,7 +8,7 @@ import Navbar from './components/Navbar';
 import ProtectedRoute from './ProtectedRoute';
 
 const AppContent = () => {
-  const { role } = useContext(AuthContext);
+  //const { role } = useContext(AuthContext);
 
   return (
     <div>
