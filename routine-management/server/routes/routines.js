@@ -3,9 +3,10 @@ const router = express.Router();
 const pool = require('../db');
 
 // Get all routines
-router.get('/', async (req, res) => {
+router.get('https://routine-management-system-1.onrender.com/', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM routines ORDER BY date, starttime');
+    console.log(result.rows);
     res.json(result.rows);
   } catch (err) {
     console.error(err.message);
