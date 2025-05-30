@@ -21,7 +21,7 @@ const Admin = () => {
     const fetchRoutines = async () => {
         try {
             setLoading(true);
-            const res = await axios.get('/api/routines');
+            const res = await axios.get('https://routine-management-system-1.onrender.com/api/routines');
             setRoutines(res.data);
         } catch (err) {
             setToast({ message: 'রুটিন আনতে সমস্যা হয়েছে', type: 'error' });
@@ -58,10 +58,10 @@ const Admin = () => {
         setLoading(true);
         try {
             if (editingId) {
-                await axios.put(`/api/routines/${editingId}`, form);
+                await axios.put(`https://routine-management-system-1.onrender.com/api/routines/${editingId}`, form);
                 setToast({ message: 'রুটিন সফলভাবে আপডেট হয়েছে', type: 'success' });
             } else {
-                await axios.post('/api/routines', form);
+                await axios.post('https://routine-management-system-1.onrender.com/api/routines', form);
                 setToast({ message: 'রুটিন সফলভাবে যোগ হয়েছে', type: 'success' });
             }
 
@@ -86,7 +86,7 @@ const Admin = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`/api/routines/${id}`);
+            await axios.delete(`https://routine-management-system-1.onrender.com/api/routines/${id}`);
             fetchRoutines();
             setToast({ message: 'রুটিন সফলভাবে মোছা হয়েছে', type: 'success' });
         } catch (err) {
