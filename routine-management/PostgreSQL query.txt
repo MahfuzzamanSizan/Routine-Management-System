@@ -1,0 +1,30 @@
+CREATE TABLE routines (
+  id SERIAL PRIMARY KEY,
+  subject VARCHAR(255),
+  date DATE,
+  starttime TIME,
+  endtime TIME,
+  classtype VARCHAR(100),
+  examname VARCHAR(255),
+  duration VARCHAR(50)
+);
+
+-- Subjects table
+CREATE TABLE subjects (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL
+);
+
+-- ClassTypes table
+CREATE TABLE class_types (
+  id SERIAL PRIMARY KEY,
+  type VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(50) UNIQUE NOT NULL,
+  password TEXT NOT NULL, -- store hashed password
+  role VARCHAR(10) NOT NULL CHECK (role IN ('admin', 'student'))
+);
+

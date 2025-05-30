@@ -1,0 +1,12 @@
+At first create table using the query written in PostgreSQL query.txt in pgAdmin 4
+Then run the code in the local computer
+
+To run the backend :
+
+1. Go to the folder routine-management/server/
+2. Then give command "node server.js"
+
+To run frontend :
+
+1. Go to the folder routine-management/
+2. Then give command "npm start"
