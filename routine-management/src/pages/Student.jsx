@@ -67,7 +67,6 @@ const Student = () => {
           </button>
         </div>
       </div>
-
       {view === 'grid' ? (
         <div className="overflow-x-auto">
           <table className="w-full border text-sm">
