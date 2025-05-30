@@ -6,7 +6,6 @@ const pool = require('../db');
 router.get('/', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM routines ORDER BY date, starttime');
-    console.log(result.rows);
     res.json(result.rows);
   } catch (err) {
     console.error(err.message);
