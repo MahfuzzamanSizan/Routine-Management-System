@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://routine-management-system-1.onrender.com", // Your backend URL
+  baseURL: "http://localhost:5000", // Your backend URL
 });
 
 // API endpoints

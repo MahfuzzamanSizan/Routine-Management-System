@@ -33,7 +33,7 @@ const Student = () => {
 
   const fetchRoutines = async () => {
     try {
-      const res = await axios.get('https://routine-management-system-1.onrender.com/api/routines');
+      const res = await axios.get('/api/routines');
       setRoutines(res.data);
     } catch (err) {
       console.error('রুটিন লোড করতে সমস্যা হয়েছে');
